@@ -1,7 +1,8 @@
 document.querySelector("#start").addEventListener("click", start);
 
 let guess = 50;
-let higherCounter = 1;
+let guesshalf = 50;
+let counter = 1;
 
 function start() {
   event.preventDefault();
@@ -20,7 +21,7 @@ function newguess(guess) {
   //    // insert this list item before the end of the list with the number 50 and three buttons higher, lower, correct with appropriate ids. use insertAdjacentHTML
   list.insertAdjacentHTML(
     "beforeend",
-    `<li>${guess}<button id='higher'>Higher</button><button id='lower'>Lower</button><button id='correct'>Correct</button></li>`
+    `<li><h3>${guess}<h3><button id='higher'>Higher</button><button id='lower'>Lower</button><button id='correct'>Correct</button></li>`
   );
   document.querySelector("#higher").addEventListener("click", higher);
   document.querySelector("#lower").addEventListener("click", lower);
@@ -30,14 +31,14 @@ function newguess(guess) {
 function higher() {
   event.preventDefault();
   console.log("higher");
-  guess = 50
-  higherCounter = higherCounter *2;
-  console.log(higherCounter);
+    console.log(guesshalf);
+  counter = counter * 2;
+  console.log(counter);
   if (guess % 2 == 0) {
-   guess = Math.round((guess + guess / higherCounter), 0)
+    guess = Math.round(guess + guesshalf / counter, 0);
     newguess(guess);
   } else {
-    guess = Math.round((guess + (guess - 1) / higherCounter), 0);
+    guess = Math.round(guess + (guesshalf - 1) / counter, 0);
     newguess(guess);
   }
 }
@@ -45,15 +46,18 @@ function higher() {
 function lower() {
   event.preventDefault();
   console.log("lower");
+  console.log(guesshalf);
+  counter = counter * 2;
   if (guess % 2 == 0) {
-    guess = guess / 2;
+    guess = guess - Math.round(guesshalf / counter, 0);
     newguess(guess);
   } else {
-    guess = (guess + 1) / 2;
+    guess = guess - Math.round((guesshalf + 1) / counter, 0);
     newguess(guess);
   }
 }
 
 function correct() {
   console.log("correct");
+  alert("Computer guessed it!");
 }

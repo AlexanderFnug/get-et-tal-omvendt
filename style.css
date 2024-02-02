@@ -1,0 +1,43 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the text of all child elements */
+}
+
+button, input[type="submit"] {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 5px; /* Add space around buttons */
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #444444;
+    opacity: 0.8;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
